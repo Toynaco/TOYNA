@@ -1,11 +1,16 @@
-import { prisma } from '@/lib/prisma'
-import ProductCard from '@/components/ProductCard'
+// ملف: app/page.tsx
+export const dynamic = 'force-dynamic';
 
-export default async function Home() {
-  const products = await prisma.product.findMany({ orderBy: { createdAt: 'desc' } })
+import { prisma } from '@/lib/prisma';
+
+export default async function HomePage() {
+  const products = await prisma.product.findMany();
+
   return (
-    <main className="container mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {products.map(p => <ProductCard key={p.id} product={p} />)}
+    <main>
+      {products.map((product) => (
+        <div key={product.id}>{product.name}</div>
+      ))}
     </main>
-  )
+  );
 }
