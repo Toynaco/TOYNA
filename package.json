@@ -1,3 +1,4 @@
+// package.json
 {
   "name": "toyna",
   "version": "0.1.0",
@@ -19,6 +20,11 @@
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "prisma": "^4.16.0",
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^3.3.2",
+
+    // أضف هذه الأسطر:
+    "typescript": "^5.1.6",
+    "@types/react": "^18.2.7",
+    "@types/node": "^18.16.18"
   }
 }
