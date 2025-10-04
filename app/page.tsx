@@ -1,6 +1,3 @@
-```tsx
-// app/page.tsx
-
 export const dynamic = 'force-dynamic';
 
 import { prisma } from '@/lib/prisma';
@@ -10,8 +7,8 @@ export default async function HomePage() {
 
   return (
     <main>
-      {products.map((p) => (
-        <div key={p.id}>{p.name}</div>
+      {products.map((product) => (
+        <div key={product.id}>{product.name}</div>
       ))}
     </main>
   );
