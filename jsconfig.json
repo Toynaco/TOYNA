@@ -1,4 +1,6 @@
 {
+// (اختياري) jsconfig.json لتفعيل alias @
+{
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
