@@ -1,0 +1,18 @@
+// ملف tsconfig.json ضعه في جذر المستودع (على مستوى package.json)
+
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jsconfig.json"],
+  "exclude": ["node_modules"]
+}
