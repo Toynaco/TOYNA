@@ -1,10 +1,10 @@
 // app/layout.tsx
 
-import './globals.css';
+import "./globals.css";
 
 export const metadata = {
-  title: 'TOYNA',
-  description: 'Children toy store',
+  title: "TOYNA",
+  description: "Children's toy store",
 };
 
 export default function RootLayout({
