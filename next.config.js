@@ -1,6 +1,6 @@
 // ملف next.config.js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+/**  {import('next').NextConfig} */
+ nextConfig = {
   reactStrictMode: true
 }
 
