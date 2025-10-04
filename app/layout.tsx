@@ -1,28 +1,21 @@
-// ملف: app/admin/layout.tsx
-export const dynamic = 'force-dynamic';
-'use client';
+```tsx
+// app/layout.tsx
 
-import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import './globals.css';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  const [session, setSession] = useState(null);
+export const metadata = {
+  title: 'TOYNA',
+  description: 'Children toy store',
+};
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        router.push('/login');
-      } else {
-        setSession(session);
-      }
-    });
-  }, [router]);
-
-  if (!session) {
-    return <div>Loading...</div>;
-  }
-
-  return <div className="admin-layout">{children}</div>;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }
