@@ -1,19 +1,30 @@
-'use client'
-import { supabase } from '@/lib/supabase'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+'use client';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter()
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const router = useRouter();
+  const [session, setSession] = useState<any>(null);
+
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (!data.session) router.replace('/admin/login')
-    })
-  }, [])
-  return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-xl font-bold mb-4">لوحة التحكم</h1>
-      {children}
-    </div>
-  )
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        router.push('/login');
+      } else {
+        setSession(session);
+      }
+    });
+  }, [router]);
+
+  if (!session) {
+    return <div>Loading admin...</div>;
+  }
+
+  return <div className="admin-container">{children}</div>;
 }
